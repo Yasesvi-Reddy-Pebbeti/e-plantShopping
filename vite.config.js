@@ -1,8 +1,7 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// ✅ Important fix for GitHub Pages
 export default defineConfig({
-  base: '/e-plantShopping/', 
   plugins: [react()],
-})
+  base: "/e-plantShopping/",
+});
