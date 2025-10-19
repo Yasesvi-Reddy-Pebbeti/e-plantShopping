@@ -1,16 +1,72 @@
-/* LandingPage.css */
+/* 🌎 Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 }
 
+/* 🌿 Navbar (only visible on product list page) */
+.navbar-landing {
+  background-color: #2e7d32;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.6s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-links button:hover {
+  color: #c8e6c9;
+}
+
+/* 🌄 Landing Page */
 .landing-page {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: #f8f8f8;
+  overflow: hidden;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .background-image {
@@ -19,129 +75,205 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg');
-  background-size: 100% 100%;
+  background-image: url("https://cdn.pixabay.com/photo/2017/07/13/08/59/greenhouse-2499758_1280.jpg");
+  background-size: cover;
   background-position: center;
-  filter: brightness(0.8);
+  filter: brightness(0.7);
+  transition: transform 1.5s ease;
 }
+
+.background-image:hover {
+  transform: scale(1.05);
+}
+
+/* 🌼 Content Layout */
 .content {
+  position: relative;
+  z-index: 2;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
   height: 100vh;
-  width: 100vw;
- top: 100px;
-  backdrop-filter: blur(4px);
-  background-color: rgba(0,0,0,0.5);
-  gap: 20px;
-}
-
-.landing_content {
- margin-top: 430px;
-  margin-left: 100px;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  text-align: center;
-  /* background-color: red; */
-  width: 400px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.content p,
-.content h1 {
+  padding: 0 5vw;
+  background: rgba(0, 0, 0, 0.4);
   color: white;
+  flex-wrap: wrap;
+  gap: 3vw;
+  overflow: hidden;
 }
 
-.content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+/* Left Section */
+.landing_content {
+  flex: 1;
+  min-width: 280px;
+  max-width: 480px;
+  text-align: left;
+  animation: fadeUp 1.2s ease;
 }
 
-.content p {
-  font-size: 25px;
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landing_content h1 {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.landing_content p {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  color: #e8f5e9;
 }
 
 .divider {
-  width: 50px;
-  height: 2px;
-  background-color: #4caf50;
-  margin: 10px 0;
+  width: 60px;
+  height: 3px;
+  background-color: #66bb6a;
+  margin: 15px 0;
 }
 
+/* Button */
 .get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4caf50;
+  background-color: #43a047;
+  padding: 14px 30px;
+  font-size: 18px;
   color: white;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 40px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .get-started-button:hover {
-  background-color: #45a049;
+  background-color: #388e3c;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
 }
 
-/* ProductList.css */
+/* Right Section - About Us Container */
+.aboutus_container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 35px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  color: white;
+  flex: 1;
+  max-width: 550px;
+  min-width: 300px;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 16px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  animation: fadeUp 1.4s ease;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
 
+/* Product List Transition */
 .product-list-container {
-  position: absolute;
-  overflow-x: hidden;
-  top: 100vh;
-  /* Initially off-screen */
-  left: 0;
+  position: relative;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  /* Smooth transition for top property */
+  min-height: 100vh;
+  background-color: #f1f8f6;
+  transition: all 0.5s ease;
   overflow-y: auto;
-  /* Enable vertical scrolling */
   z-index: 2;
-  /* Ensure it's above landing page content */
-  backdrop-filter: blur(5px);
+  padding-top: 80px;
 }
 
-.product-list-container.visible {
-  top: 0;
+/* Animation for Page Entry */
+.visible {
+  animation: fadeInSmooth 0.6s ease;
 }
-/* LandingPage.css */
-@media screen and (max-width: 768px) {
+
+@keyframes fadeInSmooth {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #a5d6a7;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #66bb6a;
+}
+
+/* 📱 Responsive */
+@media (max-width: 1024px) {
   .content {
     flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .landing_content {
-    margin-top: 100px; /* Adjust as needed */
-    margin-left: 0;
-    width: 80%; /* Adjust as needed */
+    justify-content: center;
     text-align: center;
+    padding: 40px;
   }
 
   .aboutus_container {
-    margin-top: 20px; /* Adjust as needed */
-    width: 80%; /* Adjust as needed */
+    width: 90%;
+    margin-top: 20px;
+    text-align: left;
+  }
+
+  .landing_content h1 {
+    font-size: 42px;
   }
 }
 
-@media screen and (max-width: 480px) {
-  .landing_content {
-    margin-top: 50px; /* Adjust as needed */
-    width: 90%; /* Adjust as needed */
+@media (max-width: 768px) {
+  .aboutus_container {
+    font-size: 14px;
+    width: 95%;
+    padding: 20px;
   }
 
-  .aboutus_container {
-    width: 90%; /* Adjust as needed */
+  .landing_content {
+    text-align: center;
   }
+}
+
+/* 🌾 Body + Global Fixes */
+body {
+  background-color: #f1f8f6;
+  overflow-x: hidden;
+}
+
+/* 🌱 App Wrapper */
+.app-container {
+  overflow-x: hidden;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+.product-list-container {
+  background-color: #f1f8f6;
+  min-height: 100vh;
+  padding-top: 80px; /* ensures content isn't hidden behind fixed navbar */
+  transition: all 0.5s ease;
 }

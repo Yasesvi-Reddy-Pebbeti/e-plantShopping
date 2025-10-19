@@ -1,33 +1,56 @@
 .about-us-container {
-    width: 1000px;
-    /* margin: 0 auto; */
-    /* padding: 20px; */
-    /* background-color: red; */
-    text-align: justify;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 35px 40px;
+  color: #f1f8e9;
+  max-width: 550px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 1.2s ease;
+}
+
+.about-us-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.about-us-description {
+  font-size: 18px;
+  color: #c8e6c9;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.about-us-content {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  color: #e0f2f1;
+  text-align: justify;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .about-us-heading {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .about-us-description {
-    font-size: 18px;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
-  .about-us-content {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  .plant_logo_right{
-    text-align: right;
+}
+
+@media (max-width: 768px) {
+  .about-us-container {
+    padding: 25px 20px;
+    max-width: 90%;
+    margin: 0 auto;
+    font-size: 15px;
   }
 
-  .plant_logo_left{
-    text-align: left;
+  .about-us-description {
+    font-size: 17px;
   }
+}
